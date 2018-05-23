@@ -1,0 +1,29 @@
+{
+  "name": "node.sound.cloud.api",
+  "version": "1.0.0",
+  "description": "nodejs version of sound cloud API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimorTartakovsky/node.sound.cloud.api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimorTartakovsky/node.sound.cloud.api/issues"
+  },
+  "homepage": "https://github.com/TimorTartakovsky/node.sound.cloud.api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dateformat": "^3.0.3",
+    "express": "^4.15.4",
+    "hbs": "^4.0.1",
+    "mongodb": "^3.1.0-beta4",
+    "mongoose": "^5.1.2",
+    "needle": "^2.2.1",
+    "q": "^1.5.1"
+  }
+}
