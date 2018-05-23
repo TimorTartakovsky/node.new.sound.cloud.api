@@ -39,7 +39,6 @@ class TracksRepository {
             promisesArray = promisesArray.concat(newPromise);
         });
         return Q.all(promisesArray).then(result => {
-            console.log(this.getSortedByLikes(result));
             return this.getSortedByLikes(result);
         }).catch(err => {
             throw `Error: ${err.message}`;
@@ -71,7 +70,6 @@ class TracksRepository {
                      }
                      array = array.concat(trackToSave);
                      new track(trackToSave).save().catch(error => {
-                         console.log(error);
                          return error;
                      });
                  })

@@ -3,6 +3,10 @@ const hbs = require("hbs");
 const app = express();
 const bodyParser = require("body-parser");
 const {tracksRepository} = require("./server/tracksRepository");
+const config = require("./config.json");
+const logging = require("logger-winston");
+logging.init(config);
+const logger = logging.getLogger("API Controller");
 const SECRET_KEY = "Secret key 777";
 
 hbs.registerPartials(`${__dirname}/views/partials`);
@@ -16,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.get("/getPredefined", (req, res) => {
     const response = tracksRepository.getPredefinedBands();
+    logger.info(response);
     response.then(response => {
         res.status(200).send(response);
     }).catch(err => res.status(400).send({error: err}));
@@ -31,6 +36,7 @@ app.post("/tracks", (req, res) => {
         return res.send(400, {"error": "secret_key was not found..."})
     }
     const response = tracksRepository.getTracksByBandName(bandName);
+    logger.info(response);
     response.then(response => {
             res.status(200).send(response);
         }).catch(err => res.status(400).send({error: err}));
@@ -45,7 +51,7 @@ app.get('/tracks', (req, res) => {
 app.use(express.static(__dirname + "public"))
 
 app.listen(3000, () => {
-    console.log("node.sound.cloud.api is working");
+    logger.info("node.sound.cloud.api is working");
 });
 
 const isSecretKeyFromRequestValid = (secretKey) => {

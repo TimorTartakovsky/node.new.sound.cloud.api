@@ -4,6 +4,7 @@
   "description": "nodejs version of sound cloud API",
   "main": "index.js",
   "scripts": {
+    "start": "node tracksController.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,7 @@
     "dateformat": "^3.0.3",
     "express": "^4.15.4",
     "hbs": "^4.0.1",
+    "logger-winston": "0.0.11",
     "mongodb": "^3.1.0-beta4",
     "mongoose": "^5.1.2",
     "needle": "^2.2.1",
